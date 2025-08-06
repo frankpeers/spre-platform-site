@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LYRA & ORION Assistant</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; background: #f9f9f9; }
+    #chat-box { border: 1px solid #ccc; padding: 1em; height: 300px; overflow-y: auto; background: #fff; }
+    input, button { padding: 0.5em; margin-top: 1em; width: 100%; }
+  </style>
+</head>
+<body>
+  <h1>💬 LYRA & ORION — SPRE AI Assistant</h1>
+  <div id="chat-box"></div>
+  <input id="user-input" placeholder="Ask LYRA or ORION..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('user-input');
+      const chatBox = document.getElementById('chat-box');
+      const userText = input.value;
+      chatBox.innerHTML += "<div><b>You:</b> " + userText + "</div>";
+      input.value = "";
+
+      const res = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText })
+      });
+
+      const data = await res.json();
+      chatBox.innerHTML += "<div><b>LYRA & ORION:</b> " + data.reply + "</div>";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+</body>
+</html>

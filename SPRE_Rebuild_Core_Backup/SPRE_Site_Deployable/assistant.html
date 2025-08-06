@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPRE Assistant – ADAM & EVE</title>
+</head>
+<body>
+  <h1>SPRE Assistant – ADAM & EVE</h1>
+  <textarea id="user-input" rows="4" cols="50" placeholder="Ask ADAM or EVE..."></textarea><br>
+  <button onclick="sendMessage()">Send</button>
+  <pre id="response"></pre>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("user-input").value;
+      const responseBox = document.getElementById("response");
+      responseBox.textContent = "Thinking...";
+
+      try {
+        const res = await fetch("/.netlify/functions/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input })
+        });
+        const data = await res.json();
+        responseBox.textContent = data.reply || "No response";
+      } catch (err) {
+        responseBox.textContent = "Error: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>

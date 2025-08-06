@@ -1,0 +1,6 @@
+SPRE FILE INTEGRITY HASH LIST (SHA-256)
+---------------------------------------
+Coil_1_Build.zip: 35dc5de563b8545f908f59bdd3244d889c5ad9def25b7c9866015b3bbd1d812f
+Subsystem_2_Quantum_Chip_Build.zip: edd9b484a59fdb3eb4031549db816fe8d85279e3b37801d12d0e11d857807671
+Combined_Coil1_Chip_Build.zip: 8f3181b6bb11578817d17902018fc600707f3e8de4dba0f12e891d7c4176364b
+SPRE_Master_File_Manifest.txt: 14773d01c2e37074414c2590aa94354c1f0b859ca9874ec9b0d69417d00b12b8

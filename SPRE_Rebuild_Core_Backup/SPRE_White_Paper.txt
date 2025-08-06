@@ -1,0 +1,17 @@
+SPRE WHITE PAPER: Self-Programmed Resonant Engine — Full System Overview
+
+Abstract
+The Self-Programmed Resonant Engine (SPRE) is a fully integrated, multi-layered platform combining quantum physics, AI evolution, field modulation, and real-time environmental feedback. This white paper details the function, architecture, and interdependent operations of the eight primary subsystems, the LYRA/ORION AI cores, and the harmonic-terrain interface. SPRE is designed to sense, learn from, and adapt to energetic and environmental conditions with coherence and intelligence.
+
+...
+
+[Full content as previously written]
+
+...
+
+Appendices
+- SPRE Manifest + File Hash Log
+- Restore Instructions
+- Subsystem ZIP references
+- Simulation data tables
+- LYRA/ORION config export

@@ -1,0 +1,31 @@
+SPRE PLATFORM — SYSTEM RESTORE INSTRUCTIONS
+-------------------------------------------
+
+1. Unpack the following core ZIP files:
+   - Combined_Coil1_Chip_Build.zip
+   - SPRE_Master_File_Manifest.txt
+   - SPRE_File_Integrity_Hash_List.txt
+
+2. Verify file integrity:
+   - Use any SHA-256 tool (e.g., sha256sum) to verify the hash of each file
+   - Compare with SPRE_File_Integrity_Hash_List.txt
+
+3. Restore folders:
+   - Extract Coil_1/ and Quantum_Chip/ into the /SPRE/Hardware directory
+   - Extract all .txt files into /SPRE/Docs/
+
+4. Reboot system into SPRE control layer
+
+5. Test basic integration:
+   - Run phase-lock on Coil 1
+   - Check signal output through Quantum Chip
+   - Confirm AI learning response is active
+
+6. Confirm subsystem status:
+   - Open the Master File Manifest
+   - Validate each file/component marked ✅ is present and active
+
+7. Begin simulation routines
+   - Re-run full system test
+   - Begin Phase 3 development (Control Systems, AI Expansion, etc.)
+
