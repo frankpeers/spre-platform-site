@@ -5,50 +5,81 @@
   <title>SPRE Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 2em; background-color: #f9f9f9; color: #111; }
-    h1 { text-align: center; }
-    .status { text-align: center; margin-bottom: 2em; font-weight: bold; }
-    .button-panel {
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #0f172a;
+      color: #f1f5f9;
       display: flex;
       flex-direction: column;
-      gap: 1em;
-      max-width: 400px;
-      margin: 2em auto;
+      min-height: 100vh;
+    }
+    header {
+      background: #1e293b;
+      padding: 2em 1em;
       text-align: center;
     }
-    .button-panel a {
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .status {
+      margin-top: 0.5em;
+      font-size: 0.95em;
+      color: #94a3b8;
+    }
+    main {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2em 1em;
+    }
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1em;
+      max-width: 400px;
+      width: 100%;
+    }
+    .button-grid a {
       display: block;
+      text-align: center;
       padding: 1em;
-      background: #0f172a;
+      background: #334155;
       color: white;
       text-decoration: none;
       border-radius: 8px;
+      font-size: 1.1em;
       transition: background 0.3s;
     }
-    .button-panel a:hover {
-      background: #1e293b;
+    .button-grid a:hover {
+      background: #475569;
     }
     footer {
-      margin-top: 4em;
+      background: #1e293b;
+      padding: 1em;
       text-align: center;
-      font-size: 0.9em;
-      color: #555;
+      font-size: 0.85em;
+      color: #94a3b8;
     }
   </style>
 </head>
 <body>
-  <h1>🌀 SPRE Platform</h1>
-  <div class="status">
-    Node synchronized | Energy field balanced | Pattern Field stabilized
-  </div>
+  <header>
+    <h1>🌀 SPRE Platform</h1>
+    <div class="status">Node synchronized | Energy field balanced | Pattern Field stabilized</div>
+  </header>
 
-  <div class="button-panel">
-    <a href="library.html">📚 Enter the Library</a>
-    <a href="tech.html">🧪 Visit the Tech Lab</a>
-    <a href="assistant.html">💬 Activate LYRA & ORION</a>
-    <a href="nodes.html">🧲 Explore the Node Grid</a>
-    <a href="admin.html">🛠️ Enter Admin Console</a>
-  </div>
+  <main>
+    <div class="button-grid">
+      <a href="library.html">📚 Enter the Library</a>
+      <a href="tech.html">🧪 Visit the Tech Lab</a>
+      <a href="assistant.html">💬 Activate LYRA & ORION</a>
+      <a href="nodes.html">🧲 Explore the Node Grid</a>
+      <a href="admin.html">🛠️ Enter Admin Console</a>
+    </div>
+  </main>
 
   <footer>
     SPRE Platform v1.0 — Genesis Build<br />
