@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LYRA Assistant</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    #chat { border: 1px solid #ccc; padding: 1rem; max-height: 400px; overflow-y: auto; }
+    .message { margin-bottom: 1rem; }
+    .user { color: blue; }
+    .assistant { color: green; }
+  </style>
+</head>
+<body>
+  <h1>LYRA Assistant</h1>
+  <div id="chat"></div>
+  <form id="input-form">
+    <input id="user-input" type="text" placeholder="Type your message…" required style="width:70%;" />
+    <button type="submit">Send</button>
+  </form>
+  <script>
+    const chatEl = document.getElementById('chat');
+    const form = document.getElementById('input-form');
+    const input = document.getElementById('user-input');
+    const history = [];
+
+    function appendMessage(role, content) {
+      const msg = document.createElement('div');
+      msg.className = 'message ' + role;
+      msg.textContent = (role === 'user' ? 'You: ' : 'LYRA: ') + content;
+      chatEl.appendChild(msg);
+      chatEl.scrollTop = chatEl.scrollHeight;
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+      appendMessage('user', text);
+      history.push({ role: 'user', content: text });
+      input.value = '';
+      appendMessage('assistant', '…thinking…');
+
+      const response = await fetch('/.netlify/functions/chat', {
+        method: 'POST',
+        body: JSON.stringify({ messages: history }),
+      });
+
+      const data = await response.json();
+      chatEl.lastChild.textContent = 'LYRA: ' + (data.error || data.reply);
+      if (!data.error) {
+        history.push({ role: 'assistant', content: data.reply });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "spre-lyra-assistant",
+  "version": "1.0.0",
+  "main": "package.json",
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}
