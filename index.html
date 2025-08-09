@@ -2,88 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SPRE Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #0f172a;
-      color: #f1f5f9;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      background: #1e293b;
-      padding: 2em 1em;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    .status {
-      margin-top: 0.5em;
-      font-size: 0.95em;
-      color: #94a3b8;
-    }
-    main {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2em 1em;
-    }
-    .button-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1em;
-      max-width: 400px;
-      width: 100%;
-    }
-    .button-grid a {
-      display: block;
-      text-align: center;
-      padding: 1em;
-      background: #334155;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1em;
-      transition: background 0.3s;
-    }
-    .button-grid a:hover {
-      background: #475569;
-    }
-    footer {
-      background: #1e293b;
-      padding: 1em;
-      text-align: center;
-      font-size: 0.85em;
-      color: #94a3b8;
-    }
-  </style>
+  <title>SPRE Platform</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="description" content="SPRE Platform — a self-evolving system of energy, intelligence, and harmonic design." />
 </head>
-<body>
-  <header>
-    <h1>🌀 SPRE Platform</h1>
-    <div class="status">Node synchronized | Energy field balanced | Pattern Field stabilized</div>
+<body class="bg-black text-white font-sans min-h-screen flex flex-col">
+  <header class="p-4 border-b border-white/10">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-white/10"></div>
+        <span class="tracking-wide font-semibold">SPRE Platform</span>
+      </a>
+      <nav class="flex gap-4 text-sm">
+        <a class="hover:underline" href="/library.html">Library</a>
+        <a class="hover:underline" href="/tech.html">Tech Lab</a>
+        <a class="hover:underline" href="/assistant.html">LYRA &amp; ORION</a>
+        <a class="hover:underline" href="/nodes.html">Node Grid</a>
+        <a class="hover:underline" href="/admin.html">Admin</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <div class="button-grid">
-      <a href="library.html">📚 Enter the Library</a>
-      <a href="tech.html">🧪 Visit the Tech Lab</a>
-      <a href="assistant.html">💬 Activate LYRA & ORION</a>
-      <a href="nodes.html">🧲 Explore the Node Grid</a>
-      <a href="admin.html">🛠️ Enter Admin Console</a>
-    </div>
-  </main>
+  <main class="flex-1">
+<section class="max-w-4xl mx-auto px-6 py-16 text-center">
+  <h1 class="text-5xl font-bold mb-4 tracking-wide">SPRE Platform</h1>
+  <p class="text-lg italic mb-6">A self-evolving system of energy, intelligence, and harmonic design.</p>
+  <div class="text-green-400 text-sm mb-10">
+    🌀 Node synchronized | 🧬 Energy field balanced | 🛠️ Pattern Field stabilized
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl w-full mx-auto">
+    <a href="/library.html" class="bg-blue-700 hover:bg-blue-800 py-3 px-5 rounded-xl shadow text-white text-lg">📚 Enter the Library</a>
+    <a href="/tech.html" class="bg-purple-700 hover:bg-purple-800 py-3 px-5 rounded-xl shadow text-white text-lg">🧪 Visit the Tech Lab</a>
+    <a href="/assistant.html" class="bg-green-700 hover:bg-green-800 py-3 px-5 rounded-xl shadow text-white text-lg">💬 Activate LYRA &amp; ORION</a>
+    <a href="/nodes.html" class="bg-yellow-600 hover:bg-yellow-700 py-3 px-5 rounded-xl shadow text-white text-lg">🟢 Explore the Node Grid</a>
+    <a href="/admin.html" class="bg-red-700 hover:bg-red-800 py-3 px-5 rounded-xl shadow text-white text-lg md:col-span-2">🛠️ Enter Admin Console</a>
+  </div>
+</section>
+</main>
 
-  <footer>
-    SPRE Platform v1.0 — Genesis Build<br />
-    Contact: frank.peers@live.co.uk
+  <footer class="p-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto text-sm text-white/70">
+      <div class="mb-1">© 2025 SPRE Platform</div>
+      <div>🌀 Node synchronized | 🧬 Energy field balanced | 🛰️ Pattern Field stabilized</div>
+    </div>
   </footer>
 </body>
 </html>

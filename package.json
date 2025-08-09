@@ -1,7 +1,10 @@
 {
   "name": "spre-platform",
+  "private": true,
+  "type": "module",
   "version": "1.0.0",
+  "description": "SPRE Platform clean flat deploy",
   "dependencies": {
-    "openai": "^4.0.0"
+    "openai": "^4.58.1"
   }
 }

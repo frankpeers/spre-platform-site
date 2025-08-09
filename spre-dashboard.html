@@ -1,32 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SPRE — Cold‑Start Readiness</title>
-<link rel="stylesheet" href="/spre-cs-assets/spre-coldstart.css">
-<style>
-  body{background:#0b0f14;margin:0;padding:24px;color:#e8f0ff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-  .wrap{max-width:1100px;margin:0 auto}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPRE Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="description" content="SPRE Platform — a self-evolving system of energy, intelligence, and harmonic design." />
 </head>
-<body>
-  <div class="wrap">
-    <h2>SPRE Platform — Cold‑Start Readiness</h2>
-    <div class="spre-cs-card" data-coldstart-widget data-src="/spre-cs-data/coldstart/latest.json">
-      <h3>Cold‑Start Readiness</h3>
-      <div class="spre-cs-grid">
-        <div class="spre-cs-row"><strong>Status</strong><span class="spre-cs-status" data-status>Loading…</span></div>
-        <div class="spre-cs-row"><strong>Last Drill</strong><span data-date>—</span></div>
-        <div class="spre-cs-row"><strong>Boot→Field</strong><span data-boot>—</span></div>
-        <div class="spre-cs-row"><strong>Threat Types</strong><span data-threats>—</span></div>
-        <div class="spre-cs-row"><strong>Efficiency</strong><span data-eff>—</span></div>
-        <div class="spre-cs-row"><strong>Energy Captured</strong><span data-energy>—</span></div>
-        <div class="spre-cs-row"><strong>Next Drill</strong><span data-next>—</span></div>
-      </div>
-      <div class="spre-cs-small" data-alert>Loading…</div>
+<body class="bg-black text-white font-sans min-h-screen flex flex-col">
+  <header class="p-4 border-b border-white/10">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-white/10"></div>
+        <span class="tracking-wide font-semibold">SPRE Platform</span>
+      </a>
+      <nav class="flex gap-4 text-sm">
+        <a class="hover:underline" href="/library.html">Library</a>
+        <a class="hover:underline" href="/tech.html">Tech Lab</a>
+        <a class="hover:underline" href="/assistant.html">LYRA &amp; ORION</a>
+        <a class="hover:underline" href="/nodes.html">Node Grid</a>
+        <a class="hover:underline" href="/admin.html">Admin</a>
+      </nav>
     </div>
+  </header>
+
+  <main class="flex-1">
+<section class="max-w-5xl mx-auto px-6 py-12">
+  <h2 class="text-3xl font-semibold mb-6">SPRE Dashboard</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <a href="/library.html" class="p-4 border border-white/10 rounded-xl hover:bg-white/5">📚 Library</a>
+    <a href="/tech.html" class="p-4 border border-white/10 rounded-xl hover:bg-white/5">🧪 Tech Lab</a>
+    <a href="/assistant.html" class="p-4 border border-white/10 rounded-xl hover:bg-white/5">💬 LYRA &amp; ORION</a>
+    <a href="/nodes.html" class="p-4 border border-white/10 rounded-xl hover:bg-white/5">🟢 Node Grid</a>
+    <a href="/admin.html" class="p-4 border border-white/10 rounded-xl hover:bg-white/5">🛠 Admin</a>
   </div>
-<script src="/spre-cs-assets/spre-coldstart.js"></script>
+</section>
+</main>
+
+  <footer class="p-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto text-sm text-white/70">
+      <div class="mb-1">© 2025 SPRE Platform</div>
+      <div>🌀 Node synchronized | 🧬 Energy field balanced | 🛰️ Pattern Field stabilized</div>
+    </div>
+  </footer>
 </body>
 </html>

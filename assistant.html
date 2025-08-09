@@ -2,54 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>LYRA Assistant</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; }
-    #chat { border: 1px solid #ccc; padding: 1rem; max-height: 400px; overflow-y: auto; }
-    .message { margin-bottom: 1rem; }
-    .user { color: blue; }
-    .assistant { color: green; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LYRA & ORION — Assistant</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>LYRA Assistant</h1>
-  <div id="chat"></div>
-  <form id="input-form">
-    <input id="user-input" type="text" placeholder="Type your message…" required style="width:70%;" />
-    <button type="submit">Send</button>
-  </form>
-  <script>
-    const chatEl = document.getElementById('chat');
-    const form = document.getElementById('input-form');
-    const input = document.getElementById('user-input');
-    const history = [];
+<body class="bg-black text-white font-sans min-h-screen flex flex-col">
+  <header class="p-4 border-b border-white/10">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="/index.html" class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-white/10"></div>
+        <span class="tracking-wide font-semibold">SPRE Platform</span>
+      </a>
+      <nav class="flex gap-4 text-sm">
+        <a class="hover:underline" href="/library.html">Library</a>
+        <a class="hover:underline" href="/tech.html">Tech Lab</a>
+        <a class="hover:underline" href="/assistant.html">LYRA &amp; ORION</a>
+        <a class="hover:underline" href="/nodes.html">Node Grid</a>
+        <a class="hover:underline" href="/admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
 
-    function appendMessage(role, content) {
-      const msg = document.createElement('div');
-      msg.className = 'message ' + role;
-      msg.textContent = (role === 'user' ? 'You: ' : 'LYRA: ') + content;
-      chatEl.appendChild(msg);
-      chatEl.scrollTop = chatEl.scrollHeight;
+  <main class="flex-1">
+    <section class="max-w-3xl mx-auto px-6 py-10">
+      <h1 class="text-3xl font-semibold mb-4">LYRA &amp; ORION</h1>
+      <div id="log" class="h-96 overflow-y-auto p-4 border border-white/10 rounded-xl mb-4 text-white/90"></div>
+      <form id="chatForm" class="flex gap-3">
+        <input id="userInput" class="flex-1 rounded-xl bg-white/10 px-4 py-3 focus:outline-none" placeholder="Type your message…" />
+        <button class="px-5 py-3 bg-green-700 hover:bg-green-800 rounded-xl">Send</button>
+      </form>
+      <p class="text-sm text-white/60 mt-3">Your messages are sent to /api/chat (Netlify Function). Make sure OPENAI_API_KEY is set in Site settings → Environment variables.</p>
+    </section>
+  </main>
+
+  <script>
+    const log = document.getElementById('log');
+    const form = document.getElementById('chatForm');
+    const input = document.getElementById('userInput');
+    const messages = [];
+
+    function append(role, text) {
+      const div = document.createElement('div');
+      div.className = 'mb-2';
+      div.textContent = (role === 'user' ? 'You: ' : 'LYRA: ') + text;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
     }
 
-    form.addEventListener('submit', async e => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const text = input.value.trim();
-      if (!text) return;
-      appendMessage('user', text);
-      history.push({ role: 'user', content: text });
+      const content = input.value.trim();
+      if (!content) return;
+      messages.push({ role: 'user', content });
+      append('user', content);
       input.value = '';
-      appendMessage('assistant', '…thinking…');
 
-      const response = await fetch('/.netlify/functions/chat', {
-        method: 'POST',
-        body: JSON.stringify({ messages: history }),
-      });
-
-      const data = await response.json();
-      chatEl.lastChild.textContent = 'LYRA: ' + (data.error || data.reply);
-      if (!data.error) {
-        history.push({ role: 'assistant', content: data.reply });
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages })
+        });
+        if (!res.ok) {
+          const t = await res.text();
+          append('assistant', `Error ${res.status}: ${t}`);
+          return;
+        }
+        const data = await res.json();
+        const text = data.reply || data.message || JSON.stringify(data);
+        messages.push({ role: 'assistant', content: text });
+        append('assistant', text);
+      } catch (err) {
+        append('assistant', 'Network error: ' + err.message);
       }
     });
   </script>
